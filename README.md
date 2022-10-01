@@ -227,9 +227,24 @@ No terminal digite `python manage.py makemigrations`
 - No terminal digite `python manage.py migrate`
 
 - [X] Criando um usuário para o ambiente administrativo
+- O Django já cria um ambiente administrativo para nossa aplicação, ficando esse ambiente em `http://127.0.0.1:8000/admin/`
+- Para utilizar o ambiente administrativo precisamos criar um usuário de acesss. No terminal digite:
 `python manage.py createsuperuser`
+- *** Obs: Quando digitar a senha, ela vai ficar em branco.
+- Para criar o módulo referente ao nosso APP no ambiente administrativo, precisamos registrar nossos modelos no Admin.
 
-- [ ] Registrando um modelo no admin
+- [X] Registrando um modelo no admin
+- Abra o arquivo `receitas/admin.py` e registre seu modelo:
+```python
+from django.contrib import admin
+from .models import Receitas
+
+admin.site.register(Receitas)
+```
+- [] Trazendo os dados do banco de dados:
+
+- [] Exibição das páginas individuais das receitas
+
 
 
 ## 📝 Licença
