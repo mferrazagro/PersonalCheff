@@ -198,12 +198,39 @@ INSTALLED_APPS[
     - Dentro do PHPMyAdmin, click no botão `novo` para criar um banco de dados, insira o nome `personalcheff_bd`
 - [X] Instalando o conector do bando de dados MySQL
     - `pip install mysqlclient`
-- [ ] Configurar a conexão com mysql
-- [ ] Criando o modelo da receita
-- [ ] Criando a migration (mapeamento)
-- [ ] Realizando a migration
+- [X] Configurar a conexão com mysql
+
+- [X] Criando o modelo da receita
+- Modelo é a representação das tabelas no banco de dados. Cada classe em uma model equivale a uma tabela.
+- No arquivo `receitas\models.py\` crie a classe para a representação da tabela de receitas:
+
+```python
+from django.db import models
+from datetime import datetime
+
+class Receitas(models.Model):
+    nome_receita = models.Charfield(max_length=100)
+    video = models.Charfield(max_length=80)
+    modo_preparo = models.TextField()
+    ingredientes = models.TextField()
+    nota = models.IntegerField()
+    data_receita = models.DateTimeField(default=datetime.now, blank=True)
+    
+``` 
+
+- [X] Criando a migration (mapeamento)
+- preparar todas as models criadas para serem migradas para o banco de dados.
+No terminal digite `python manage.py makemigrations`
+
+- [X] Realizando a migration
+- realizar a migração é criar fisicamente no banco de dados as tabelas preparadas anteriormente e no nosso caso, as tabelas preparadas pelo Django para o seu ambiente adminastrativo.
+- No terminal digite `python manage.py migrate`
+
+- [X] Criando um usuário para o ambiente administrativo
+`python manage.py createsuperuser`
+
 - [ ] Registrando um modelo no admin
-- [ ] Criando um usuário para o ambiente administrativo
+
 
 ## 📝 Licença
 Esse projeto está sob licença. Veja o arquivo [LICENÇA](LICENSE.md) para mais detalhes.
