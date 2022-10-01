@@ -17,8 +17,12 @@
                 
                 <td>{{receita.nome_receita}}</td>
                 <td>{{receita.video}}</td>
-                <td>{{receita.nota}}</td>
-                
+                <td>
+                    <img src:="{% static 'icon_star.png' %}"
+                    class ="icone icon_star">
+                    {{receita.nota}}
+                </td>
+
                 <td><a href="{% url 'sucodelaranja' %}" class="btn btn-info">Ver receita completa</a></td>
             </tr>
         {% endfor %}
